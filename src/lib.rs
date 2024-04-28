@@ -4,14 +4,14 @@ pub enum ExchangeApiKind {
 }
 
 pub enum ExchangeServerKind {
-    2016(Vec<ExchangeApiKind>),
-    2019(Vec<ExchangeApiKind>),
-    Online(ExchangeApiKind::Graph),
+    Exchange2016(Vec<ExchangeApiKind>),
+    Exchange2019(Vec<ExchangeApiKind>),
+    ExchangeOnline(ExchangeApiKind::Graph),
 }
 
 pub enum ExchangeServer {
     OnPremise(ExchangeServerKind),
-    Online(ExchangeServerKind::Online),
+    Online(ExchangeServerKind::ExchangeOnline),
 }
 
 pub struct<T = ExchangeServer> ExchangeConnection<T> {
