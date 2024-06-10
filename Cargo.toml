@@ -21,7 +21,7 @@ graph = ["graph-rs-sdk"]
 [dependencies]
 graph-rs-sdk = { version = "2.0.0", default-features = false, features = ["rustls-tls"], optional = true }
 reqwest = { version = "0.12.4", optional = true }
-quick-xml = { version = "0.31.0", default-features = false, features = ["serialize"], optional = true }
+quick-xml = { version = "0.32.0", default-features = false, features = ["serialize"], optional = true }
 tokio = { version = "1.38.0", features = ["full"] }
 
 [profile.dev]
