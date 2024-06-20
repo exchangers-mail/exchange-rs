@@ -1,4 +1,6 @@
+{ pkgs, ... }:
 {
+  packages = with pkgs; [ openssl.dev ];
   languages = {
     nix.enable = true;
     rust.enable = true;
