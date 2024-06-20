@@ -18,3 +18,26 @@ pub struct ExchangeConnection<T = ExchangeServer> {
     server_type: T,
     connected: bool,
 }
+
+impl ExchangeConnection {
+    pub fn new(server_type: ExchangeServer) -> Self {
+        Self {
+            server_type,
+            connected: false,
+        }
+    }
+
+    pub fn is_onpremise(&self) -> bool {
+        match self.server_type {
+            ExchangeServer::OnPremise(_) => true,
+            _ => false,
+        }
+    }
+
+    pub fn is_online(&self) -> bool {
+        match self.server_type {
+            ExchangeServer::Online(_) => true,
+            _ => false,
+        }
+    }
+}
