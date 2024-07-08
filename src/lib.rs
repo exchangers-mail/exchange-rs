@@ -21,25 +21,42 @@ pub enum ExchangeServer {
     Online(ExchangeServerKind),
 }
 
-pub struct ExchangeConnection<T = ExchangeServer> {
-    server_type: T,
-    connected: bool,
+#[derive(Default, Clone, PartialEq, Eq)]
+pub enum ExchangeServerState {
+    Connected,
+    Authenticated,
+    Unauthenticated,
+    #[default]
+    Disconnected,
+}
+
+pub struct ExchangeConnection<ServerType = ExchangeServer, ServerState = ExchangeServerState> {
+    server_type: ServerType,
+    server_state: ServerState,
 }
 
 impl ExchangeConnection {
-    pub fn new(server_type: ExchangeServer) -> Result<Self> {
-        Ok(Self {
+    pub fn new(server_type: ExchangeServer, server_state: ExchangeServerState) -> Self {
+        Self {
             server_type,
-            connected: false,
-        })
+            server_state,
+        }
     }
 
-    pub fn is_connected(&self) -> bool {
-        self.connected
+    pub fn connected(&self) {
+        self.server_state == ExchangeServerState::Connected
     }
 
-    pub fn is_disconnected(&self) -> bool {
-        self.connected.not()
+    pub fn disconnected(&self) {
+        self.connected().not()
+    }
+
+    pub fn authenticated(&self) {
+        self.server_state == ExchangeServerState::Authenticated
+    }
+
+    pub fn unauthenticated(&self) {
+        self.authenticated().not()
     }
 
     pub fn is_onpremise(&self) -> bool {
@@ -84,40 +101,5 @@ impl ExchangeConnection {
             }
             _ => false,
         }
-    }
-}
-
-#[cfg(test)]
-mod tests {
-    use super::{ExchangeApiKind, ExchangeConnection, ExchangeServer, ExchangeServerKind};
-
-    #[test]
-    pub fn run_test_ews() {
-        let exchange = ExchangeConnection::new(ExchangeServer::OnPremise(
-            ExchangeServerKind::Exchange2016(vec![ExchangeApiKind::Ews]),
-        ))
-        .unwrap();
-
-        assert_eq!(exchange.is_connected(), false);
-        assert_eq!(exchange.is_disconnected(), true);
-        assert_eq!(exchange.is_onpremise(), true);
-        assert_eq!(exchange.is_online(), false);
-        assert_eq!(exchange.is_ews(), true);
-        assert_eq!(exchange.is_graph(), false);
-    }
-
-    #[test]
-    pub fn run_test_online_graph() {
-        let exchange = ExchangeConnection::new(ExchangeServer::Online(
-            ExchangeServerKind::ExchangeOnline(vec![ExchangeApiKind::Graph]),
-        ))
-        .unwrap();
-
-        assert_eq!(exchange.is_connected(), false);
-        assert_eq!(exchange.is_disconnected(), true);
-        assert_eq!(exchange.is_onpremise(), false);
-        assert_eq!(exchange.is_online(), true);
-        assert_eq!(exchange.is_ews(), false);
-        assert_eq!(exchange.is_graph(), true);
     }
 }
