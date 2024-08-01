@@ -21,7 +21,7 @@ graph = ["graph-rs-sdk"]
 [dependencies]
 anyhow = "1.0.86"
 graph-rs-sdk = { version = "2.0.0", default-features = false, features = ["rustls-tls"], optional = true }
-melib = "0.8.4"
+melib = "0.8.7"
 quick-xml = { version = "0.36.0", default-features = false, features = ["serialize"], optional = true }
 reqwest = { version = "0.12.5", optional = true }
 serde = { version = "1.0.204", features = ["derive"] }

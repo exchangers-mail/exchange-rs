@@ -396,6 +396,23 @@ dependencies = [
 ]
 
 [[package]]
+name = "bounded-static"
+version = "0.8.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "0beb903daa49b43bcafb5d5eebe633f9ad638d8b16cd08f95fb05ee7bd099321"
+
+[[package]]
+name = "bounded-static-derive"
+version = "0.8.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e0af050e27e5d57aa14975f97fe47a134c46a390f91819f23a625319a7111bfa"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn 2.0.66",
+]
+
+[[package]]
 name = "bumpalo"
 version = "3.16.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1481,26 +1498,27 @@ dependencies = [
 
 [[package]]
 name = "imap-codec"
-version = "1.0.0"
+version = "2.0.0-alpha.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e6222d4417bbb3448ed620046448c3ca2b947aa349a3c1ba0ca90ebf2af56831"
+checksum = "8f5b3f6b7f1c1dcba79867482c6fd94c0539b0115752397a7e7d0aff20f7e04d"
 dependencies = [
  "abnf-core",
- "base64 0.21.7",
+ "base64 0.22.1",
  "chrono",
  "imap-types",
  "log",
  "nom",
- "thiserror",
 ]
 
 [[package]]
 name = "imap-types"
-version = "1.0.0"
+version = "2.0.0-alpha.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8a799ec6e315b75b5e5d72b0b1403f8c05c625b98b860bbdf19a5a4e189ae061"
+checksum = "7dafc29c11ece4433e74bf11b750cbd3135b0cf342975e29503503a1489cb00b"
 dependencies = [
- "base64 0.21.7",
+ "base64 0.22.1",
+ "bounded-static",
+ "bounded-static-derive",
  "chrono",
  "thiserror",
 ]
@@ -1636,12 +1654,12 @@ checksum = "97b3888a4aecf77e811145cadf6eef5901f4782c53886191b2f693f24761847c"
 
 [[package]]
 name = "libloading"
-version = "0.7.4"
+version = "0.8.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b67380fd3b2fbe7527a606e18729d21c6f3951633d0500574c4dc22d2d638b9f"
+checksum = "4979f22fdb869068da03c9f7528f8297c6fd2606bc3a4affe42e6a823fdb8da4"
 dependencies = [
  "cfg-if",
- "winapi",
+ "windows-targets 0.52.5",
 ]
 
 [[package]]
@@ -1674,15 +1692,15 @@ dependencies = [
 
 [[package]]
 name = "log"
-version = "0.4.21"
+version = "0.4.22"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "90ed8c1e510134f979dbc4f070f87d4313098b704861a105fe34231c70a3901c"
+checksum = "a7a70ba024b9dc04c27ea2f0c0548feb474ec5c54bba33a7f72f873a39d07b24"
 
 [[package]]
 name = "melib"
-version = "0.8.6"
+version = "0.8.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4f233699ab6a71d41529624e3d9600c8a3a208874fcf4ec4a05778314afdd2e7"
+checksum = "7162bc6ee87dbd5c2b5b1b1cad725cbaef87722cd69b1c98a404226b72060027"
 dependencies = [
  "async-stream",
  "base64 0.13.1",
