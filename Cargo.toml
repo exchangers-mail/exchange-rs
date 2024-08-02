@@ -15,19 +15,22 @@ version = "0.1.0"
 [features]
 default = []
 blocking = ["reqwest/blocking"]
-ews = ["quick-xml", "reqwest"]
+ews = ["dep:ews", "xml_struct", "xml_struct_derive", "reqwest"]
 graph = ["graph-rs-sdk"]
 
 [dependencies]
-anyhow = "1.0.86"
+ews = { rev = "e5249875870fcd4bbbb3bfc37384e39aa8875f5b", git = "https://github.com/thunderbird/ews-rs", optional = true }
+file-format = "0.25.0"
 graph-rs-sdk = { version = "2.0.0", default-features = false, features = ["rustls-tls"], optional = true }
 melib = "0.8.4"
-quick-xml = { version = "0.36.0", default-features = false, features = ["serialize"], optional = true }
+ms-autodiscover = "0.3.3"
 reqwest = { version = "0.12.5", optional = true }
 serde = { version = "1.0.204", features = ["derive"] }
-serde_json = "1.0.120"
-thiserror = "1.0.61"
-tokio = { version = "1.38.0", features = ["full"] }
+serde_json = "1.0.122"
+thiserror = "1.0.63"
+tokio = { version = "1.38.1", features = ["full"] }
+xml_struct = { rev = "87723b90425d474fd29095d8b710baefd7c9b13a", git = "https://github.com/thunderbird/xml-struct-rs", optional = true }
+xml_struct_derive = { rev = "87723b90425d474fd29095d8b710baefd7c9b13a", git = "https://github.com/thunderbird/xml-struct-rs", optional = true }
 
 [profile.dev]
 lto = true
