@@ -43,30 +43,30 @@ impl ExchangeConnection {
         }
     }
 
-    pub fn connected(&self) {
+    pub fn connected(&self) -> bool {
         self.server_state == ExchangeServerState::Connected
     }
 
-    pub fn disconnected(&self) {
+    pub fn disconnected(&self) -> bool {
         self.connected().not()
     }
 
-    pub fn authenticated(&self) {
+    pub fn authenticated(&self) -> bool {
         self.server_state == ExchangeServerState::Authenticated
     }
 
-    pub fn unauthenticated(&self) {
+    pub fn unauthenticated(&self) -> bool {
         self.authenticated().not()
     }
 
-    pub fn is_onpremise(&self) -> bool {
+    pub fn on_premise(&self) -> bool {
         match self.server_type {
             ExchangeServer::OnPremise(_) => true,
             _ => false,
         }
     }
 
-    pub fn is_online(&self) -> bool {
+    pub fn exchange_online(&self) -> bool {
         match self.server_type {
             ExchangeServer::Online(_) => true,
             _ => false,
