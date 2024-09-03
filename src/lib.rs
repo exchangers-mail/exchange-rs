@@ -4,7 +4,7 @@ pub mod prelude {
     pub use super::types::*;
 }
 
-pub trait ExchangeMailboxProvider {
+pub trait Mailbox {
     fn mailbox_name() -> Option<String> {
         None
     }
