@@ -32,7 +32,7 @@ ms-autodiscover = "0.3.3"
 reqwest = { version = "0.12.9", optional = true }
 serde = { version = "1.0.214", features = ["derive"] }
 serde_json = "1.0.132"
-thiserror = "1.0.65"
+thiserror = "1.0.68"
 tokio = { version = "1.41.0", features = ["full"] }
 xml_struct = { rev = "87723b90425d474fd29095d8b710baefd7c9b13a", git = "https://github.com/thunderbird/xml-struct-rs", optional = true }
 xml_struct_derive = { rev = "87723b90425d474fd29095d8b710baefd7c9b13a", git = "https://github.com/thunderbird/xml-struct-rs", optional = true }
