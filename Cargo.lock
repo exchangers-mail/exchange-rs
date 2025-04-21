@@ -1200,9 +1200,9 @@ dependencies = [
 
 [[package]]
 name = "graph-core"
-version = "2.0.2"
+version = "3.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4457fff5d02e4b39298c897159da519ba7a578d20ea088331f9e4e7094e80c79"
+checksum = "a6ca0821b33f5f9d328294b9428cfe7004fda4a607a8305c0163e5673b937022"
 dependencies = [
  "Inflector",
  "async-stream",
@@ -1226,9 +1226,9 @@ dependencies = [
 
 [[package]]
 name = "graph-error"
-version = "0.3.2"
+version = "1.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "62646dda8bd72ea3233dcc511c8bf5a5bb4d96a17062331205a7bbdfa956b462"
+checksum = "6337d655c5d303650d16994d145efc4577d8ea7f0c5613a2fe3553264772a8bf"
 dependencies = [
  "anyhow",
  "base64 0.21.7",
@@ -1250,9 +1250,9 @@ dependencies = [
 
 [[package]]
 name = "graph-http"
-version = "2.0.2"
+version = "3.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "29eba497005b65dad5e9e7400c897cce7fa2732b078343c9c7179b65c5d4304b"
+checksum = "83231a580ded3aa08b6e0aca8adfe60e00c66cacdc1d09f742d81997223e798d"
 dependencies = [
  "async-stream",
  "async-trait",
@@ -1276,9 +1276,9 @@ dependencies = [
 
 [[package]]
 name = "graph-oauth"
-version = "2.0.2"
+version = "3.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "715149677546fabd43f024fc8e8c19b07accd2cbb66bdbd5324021515651f298"
+checksum = "76c60397fe2c19d8d5d700db0a307458a357aefabe5f903c6bc9bf3729eea7b4"
 dependencies = [
  "anyhow",
  "async-trait",
@@ -1286,6 +1286,7 @@ dependencies = [
  "dyn-clone",
  "graph-core",
  "graph-error",
+ "graph-http",
  "hex",
  "http 1.1.0",
  "jsonwebtoken",
@@ -1298,6 +1299,7 @@ dependencies = [
  "strum",
  "time 0.3.36",
  "tokio",
+ "tower",
  "tracing",
  "url",
  "uuid",
@@ -1305,9 +1307,9 @@ dependencies = [
 
 [[package]]
 name = "graph-rs-sdk"
-version = "2.0.3"
+version = "3.0.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "032c20103278581747893fcdc24437f9e7bc69d21eb4bce10c47c9e3722cf8df"
+checksum = "343910eb7c9925e4ec5bb9b5ab648a95df10ceb189e15979c443fb78da27077a"
 dependencies = [
  "graph-core",
  "graph-error",
