@@ -1941,9 +1941,9 @@ checksum = "2532096657941c2fea9c289d370a250971c689d4f143798ff67113ec042024a5"
 
 [[package]]
 name = "melib"
-version = "0.8.11"
+version = "0.8.12"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "afd96d5b9de950a635656af6d192e63027992e0c22b73446fd1b1c1495e57b94"
+checksum = "c1e55e3c6817d862c099465b927459dcf1a8bc5226e87240701dc86130d56286"
 dependencies = [
  "async-fn-stream",
  "async-io 2.3.3",
